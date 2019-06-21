@@ -20,7 +20,11 @@ public class Main {
                 return;
             }
             if (numS.charAt(i) != '0') {
-                sum += (Math.pow(base, (numS.length() - 1) - i)) * Integer.parseInt(numS.charAt(i) + "");
+                int pow = 1;
+                for (int j = 0; j < ((numS.length() - 1) - i); j++) {
+                    pow *= base;
+                }
+                sum += pow * Integer.parseInt(numS.charAt(i) + "");
             }
         }
         System.out.println(sum);
